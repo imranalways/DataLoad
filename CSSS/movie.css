@@ -45,7 +45,7 @@ p{
 }
 .point{
 	margin-top:60px;
-	margin-left:80px;
+	
 	padding:30px;
 	width:100%;
 	
@@ -56,8 +56,8 @@ p{
 	
 }
 td.images img{
-	margin-top:220px;
-	left:16.5%;
+	margin-top:180px;
+	left:12%;
 	position:absolute;
 	transform:translate(-50%, -50%);
 	border-radius:10px;
