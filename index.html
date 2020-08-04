@@ -1,5 +1,6 @@
 
 
+
 <html>
 
 	<title>Movies</title>
@@ -96,12 +97,12 @@
 				  var table="";
 				  var table2="";
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
-				  var Image
+				  var Image;
 				  for (i = 0; i <x.length; i++) { 
-					
+					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
 					
 					table2 += "<tr><td class='images'>" +
-					"<img width='200' height='200'  src='Photo/premam.jpg'/>" +
+					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
 					"</td><td>" +
 					
 					"<br> <br>"+
@@ -151,4 +152,5 @@
 
 
 </html>
+
 
