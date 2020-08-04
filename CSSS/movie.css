@@ -17,7 +17,7 @@ header{
 	font-family: Consolas;
 	font-weight:bold;
 	padding-right:40px;
-	
+	padding-left:300px;
 	padding-bottom:10px;
 	
 }
@@ -25,7 +25,7 @@ header{
 	color:blue;
 	font-family:Verdana;
 	font-size:13px;
-	
+	padding-right:150px;
 	text-align: justify;
 	text-justify: inter-word;
 	
@@ -44,30 +44,24 @@ p{
 	
 }
 .point{
-	
-	margin-top:80px;
+	margin-top:60px;
 	margin-left:80px;
-	
-	
 	padding:30px;
-	
-	
-	
-	width:70%;
+	width:100%;
 	
 	background: rgba(255,0,25,.1);
 	border: 1px solid #4CAF50;
-    
-	
-	border-radius: 10px;
+    border-radius: 10px;
 	
 	
 }
 td.images img{
-	margin-top:80px;
-	margin-left:50px;
-	margin-right:20px;
+	margin-top:220px;
+	left:16.5%;
+	position:absolute;
+	transform:translate(-50%, -50%);
 	border-radius:10px;
+	
 	
 }
 
@@ -118,3 +112,4 @@ ul li{
 .reviews{
 	margin-top:30px;
 }
+
