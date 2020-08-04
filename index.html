@@ -1,4 +1,5 @@
 
+
 <html>
 
 	<title>Movies</title>
@@ -75,8 +76,8 @@
 		</center>
 					
 			
-		<br><br>
-		<table id="demo"><table class="point" id="demo2"></table> </table>
+		
+		<center><table id="demo"> <table class="point" id="demo2"></table> </table></center>
 
 		<script>
 				function loadXMLDoc() {
@@ -99,12 +100,12 @@
 				  for (i = 0; i <x.length; i++) { 
 					
 					
-					table += "<tr><td>" +
-					"<img width='100px' height='200px'  src='Photo/premam.jpg'/>" +
-					"</td><td>" ;
+					table2 += "<tr><td class='images'>" +
+					"<img width='200' height='200'  src='Photo/premam.jpg'/>" +
+					"</td><td>" +
 					
-					
-					table2 += "<tr><td class='name'>Name</td><td class='disname'> : " +
+					"<br> <br>"+
+					 "<tr><td class='name'>Name</td><td class='disname'> : " +
 					x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
 					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
 					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
@@ -120,13 +121,15 @@
 					x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue +
 					"</td></tr><tr><td valign='top' class='name'>Description</td><td class='disname'> : " +
 					x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
-					"</td></tr></td></tr>";
+					"<br> <br> <br> <br> <br>"+
+					"</td></tr></td></tr> ";
 					
 					
 					
 				  }
 				  document.getElementById("demo").innerHTML = table;
-				  document.getElementById("demo2").innerHTML = table2;
+				  document.getElementById("demo2").innerHTML = table2
+				  
 				  
 				}
 			window.onload = loadXMLDoc();
@@ -148,3 +151,4 @@
 
 
 </html>
+
