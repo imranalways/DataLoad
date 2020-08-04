@@ -1,0 +1,120 @@
+body{
+	margin:0;
+	
+}
+
+header{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Photo/cover5.jpg);
+
+	height:220px;
+	width: 100%;
+	
+	
+	
+}
+.point td.name{
+	color:red;
+	font-family: Consolas;
+	font-weight:bold;
+	padding-right:40px;
+	
+	padding-bottom:10px;
+	
+}
+.point td.disname{
+	color:blue;
+	font-family:Verdana;
+	font-size:13px;
+	
+	text-align: justify;
+	text-justify: inter-word;
+	
+	
+}
+
+h1{
+	color:brown;
+	font-family:Century Gothic;
+	
+}
+p{
+	color:brown;
+	margin-left:80px;
+	font-family:consolas;
+	
+}
+.point{
+	
+	margin-top:80px;
+	margin-left:80px;
+	
+	
+	padding:30px;
+	
+	
+	
+	width:70%;
+	
+	background: rgba(255,0,25,.1);
+	border: 1px solid #4CAF50;
+    
+	
+	border-radius: 10px;
+	
+	
+}
+td.images img{
+	margin-top:80px;
+	margin-left:50px;
+	margin-right:20px;
+	border-radius:10px;
+	
+}
+
+
+.pr{
+	font-family:century gothic;
+	font-weight:bold;
+	color:white;
+}
+
+
+
+ul{
+	float:left;
+	list-style-type: none;
+	margin:20px;
+}
+ul.cat{
+	float:left;
+	list-style-type: none;
+	margin:10px;
+	width:100%;
+	
+	
+}
+
+ul li{
+	display:inline-block;
+}
+.button ul li a{
+	text-decoration: none;
+	font-family:consolas;
+	color:white;
+	padding:5px 20px;
+	border:1px solid transparent;
+	transition: .8s ease;
+	background-color:white;
+	color:black;
+	border-radius:5px;
+}
+
+
+.button{
+	max-width: 1500px;
+	
+	margin:auto;
+}
+.reviews{
+	margin-top:30px;
+}

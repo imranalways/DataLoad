@@ -1,0 +1,150 @@
+
+<html>
+
+	<title>Movies</title>
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="CSSS/movie.css">
+		
+		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	
+	
+	
+	
+	<body>
+		<header>
+		
+		<form>
+		
+			<center>
+			<h1>Movies</h1>
+			</center>
+						
+						<div class="button">
+							<ul>
+							
+								<li class="inactive"><a href="index.html">Home</a></li>
+								<li class="active"><a href="movies.html">Movies</a></li>
+								
+								<li class="inactive"><a href="intheater.html">In Theaters</a></li>
+								<li class="inactive"><a href="comingsoon.html">Coming soon</a></li>
+								<li class="inactive"><a href="bestmovie.html">Best Movies</a></li>
+								<li  class="inactive"><a href="addreview.html">Add Reviews</a></li>
+								<li  class="inactive"><a href="about.html">About</a></li>
+							</ul>
+						</div>
+						
+				<div class="tabpos">
+							<table bgcolor="#004EA8">
+								<tr>
+									<td width="765px">
+										<div>
+											<ul class="cat">
+												<li class="H"><a href="#">Hindi</a></li>
+												<li class="H"><a href="#">English</a></li>
+												<li class="H"><a href="#">Tamil</a></li>
+												<li class="H"><a href="#">Telugu</a></li>
+												<li class="H"><a href="#">Malayalam</a></li>
+												<li class="H"><a href="#">Kannada</a></li>
+												<li class="H"><a href="#">Korean</a></li>
+												
+												
+												
+											</ul>
+											
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>				
+				
+				
+						
+						
+				
+				
+		
+		
+		
+		
+		<center style="margin-top:220px;">
+					<h1>All Movie Reviews</h1>
+		</center>
+					
+			
+		<br><br>
+		<table id="demo"><table class="point" id="demo2"></table> </table>
+
+		<script>
+				function loadXMLDoc() {
+				  var xmlhttp = new XMLHttpRequest();
+				  xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  myFunction(this);
+					}
+				  };
+				  xmlhttp.open("GET", "cd_catalog.xml", true);
+				  xmlhttp.send();
+				}
+				function myFunction(xml) {
+				  var i;
+				  var xmlDoc = xml.responseXML;
+				  var table="";
+				  var table2="";
+				  var x = xmlDoc.getElementsByTagName("movieInfo");
+				  var Image
+				  for (i = 0; i <x.length; i++) { 
+					
+					
+					table += "<tr><td>" +
+					"<img width='100px' height='200px'  src='Photo/premam.jpg'/>" +
+					"</td><td>" ;
+					
+					
+					table2 += "<tr><td class='name'>Name</td><td class='disname'> : " +
+					x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
+					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Cast</td><td class='disname'> : " + 
+					x[i].getElementsByTagName("cast")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'> Release Date</td><td class='disname'> : " +
+					x[i].getElementsByTagName("releaseDate")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Category</td><td class='disname'> : " +
+					x[i].getElementsByTagName("category")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Genre</td><td class='disname'> : " +
+					x[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>IMDB</td><td class='disname'> : " +
+					x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td valign='top' class='name'>Description</td><td class='disname'> : " +
+					x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+					"</td></tr></td></tr>";
+					
+					
+					
+				  }
+				  document.getElementById("demo").innerHTML = table;
+				  document.getElementById("demo2").innerHTML = table2;
+				  
+				}
+			window.onload = loadXMLDoc();
+		</script>
+					
+					
+		
+		
+		
+		
+		<center><h2>Still Under Maintainance</h2></center>
+		
+
+		</form>
+		<center>&copy; Copyright 2020 Movie review site</center>
+		</header>
+	</body>
+
+
+
+</html>

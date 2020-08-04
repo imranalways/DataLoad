@@ -1,0 +1,109 @@
+ul li.active a{
+	background-color: #004EA8;
+	color:white;
+	padding:15px 20px;
+	border:1px solid transparent;
+	
+	
+	
+}
+
+ul li.inactive a:hover{
+	background-color: tomato;
+	color:white;
+}
+
+ul li.H a{
+	
+	background-color: #004EA8;
+	color:white;
+	border-radius:5px;
+	
+}
+
+ul li.H a:hover{
+	background-color: white;
+	color:black;
+}
+
+
+
+.search{
+	position:absolute;
+	top:9%;
+	left:90%;
+	transform:translate(-50%,-50%);
+
+}
+.search-text{
+    
+    height:28px;
+	width:250px;
+	border:1px solid white;
+	padding:10px 20px;
+	
+	border-radius:5px;
+	
+}
+.search-btn{
+	position:absolute;
+	top:30%;
+	left:89%;
+	padding-top:5px;
+	padding-bottom:4.8px;
+	transform:translate(-50%,-30%);
+	background-color:#1876F2;
+	color:white;
+	border-color:#1876F2;
+	
+}
+
+
+.welcome{
+	font-family:consolas;
+	position: absolute;
+	top:4.5%;
+	left:90%;
+	transform: translate(-50%,-50%);
+	color:#fff;
+}
+.logout{
+	
+	position: absolute;
+	top:4.6%;
+	left:97%;
+	transform: translate(-50%,-50%);
+	
+}
+
+#loghov{
+	color:#0cfa00;
+}
+#loghov:hover{
+	color:#ff6b0f;
+}
+#user{
+	color:#0cfa00;
+}
+#user:hover{
+	color:#ff6b0f;
+}
+
+.tabpos table {
+	position: absolute;
+	margin-top:50px;
+	margin-right:290px;
+	background-color:#004EA8;
+	
+	
+	
+}
+ul li a{
+	text-decoration: none;
+	font-family:consolas;
+	color:white;
+	padding:5px 20px;
+	border:1px solid transparent;
+	transition: .8s ease;
+	
+}
