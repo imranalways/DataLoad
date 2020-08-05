@@ -51,7 +51,7 @@ p{
 	
 	background: rgba(255,0,25,.1);
 	border: 1px solid #4CAF50;
-    border-radius: 10px;
+    	border-radius: 10px;
 	
 	
 }
@@ -121,12 +121,12 @@ ul li{
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 18%;
-  top:12%;
-  left:82%;
+  top:82px;
+  left:1228px;
   overflow:hidden;
-    overflow-y: auto;
-    height: 300px;
-	display:block;
+  overflow-y: auto;
+  height: 300px;
+  display:block;
    
 }
 
