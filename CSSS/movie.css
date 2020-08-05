@@ -24,8 +24,8 @@ header{
 .point td.disname{
 	color:blue;
 	font-family:Verdana;
-	font-size:13px;
-	padding-right:150px;
+	font-size:15px;
+	padding-right:120px;
 	text-align: justify;
 	text-justify: inter-word;
 	
@@ -112,4 +112,41 @@ ul li{
 .reviews{
 	margin-top:30px;
 }
+
+
+
+
+.movies {
+  position: absolute;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 18%;
+  top:12%;
+  left:82%;
+  overflow:hidden;
+    overflow-y: auto;
+    height: 300px;
+	display:block;
+   
+}
+
+.movies td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  padding-right:65px;
+}
+
+.movies tr td:nth-child(even){background-color: #f2f2f2;}
+
+
+.movies tr:hover {background-color: #ddd;}
+
+.movies tr {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
 
