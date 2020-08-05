@@ -1,15 +1,80 @@
 
-
-
 <html>
 
 	<title>Movies</title>
 	
 	<head>
 		<link rel="stylesheet" type="text/css" href="CSSS/movie.css">
-		
 		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		<script>
+			function search()
+			{
+				var xhttp = new XMLHttpRequest();
+				
+				
+				
+				xhttp.onreadystatechange=function()
+				{
+					if(xhttp.readyState == 4 && xhttp.status == 200)
+					{
+						
+						searchF(this);
+					}
+				};
+				xhttp.open("GET","cd_catalog.xml",true);
+				xhttp.send();
+			}
+			function searchF(xml){
+			
+				var i;
+				  var xmlDoc = xml.responseXML;
+				  var key = document.getElementById('searchTF').value;
+				  var table="";
+				  var str;
+				  var count=0;
+				  var x = xmlDoc.getElementsByTagName("movieInfo");
+				  for (i = 0; i <x.length; i++) {
+				  str = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue ;
+				  if(str.toUpperCase()==key.toUpperCase()){ 
+						table += "<tr><td>" +
+					"<a href='#'/>"+str+"</a>" +
+					
+					
+					"</td></tr>";
+					count=0;
+					 break;
+					}
+					else{
+					   count=1
+					}
+				  
+					
+				  }
+				  if(count==1){
+				   table += "<tr><td>" +
+					"No search Found" +
+					
+					
+					"</td></tr>";
+				  }
+				  document.getElementById("result").innerHTML = table;
+			
+			
+			
+			
+			
+			}
+			
+			
+			
+			
+		</script>
+	
+		
+		
 	</head>
 	
 	
@@ -98,16 +163,18 @@
 				  var table2="";
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
 				  var Image;
+				  var Name;
 				  for (i = 0; i <x.length; i++) { 
 					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue
 					
 					table2 += "<tr><td class='images'>" +
 					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
 					"</td><td>" +
-					
+					 
 					"<br> <br>"+
 					 "<tr><td class='name'>Name</td><td class='disname'> : " +
-					x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+					 Name +
 					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
 					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
 					"</td></tr><tr><td class='name'>Cast</td><td class='disname'> : " + 
@@ -136,7 +203,14 @@
 			window.onload = loadXMLDoc();
 		</script>
 					
-					
+			<div class="search">
+		<input type='text' class="search-text" onkeyup='search()' autocomplete='off' name='searchTF' id='searchTF' placeholder='Search By Movie Name'>
+		
+		</div>	
+	
+		<br>
+		
+			<table class="movies" id="result"> </table>		
 		
 		
 		
