@@ -29,44 +29,48 @@
 			}
 			function searchF(xml){
 			
-				var i;
-				  var xmlDoc = xml.responseXML;
-				  var key = document.getElementById('searchTF').value;
+				  var i, txtValue;
 				  var table="";
 				  var str;
 				  var count=0;
+				  
+				  var xmlDoc = xml.responseXML;
+				  var key = document.getElementById('searchTF');
+				  var filter = key.value.toUpperCase();
+				  
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
 				  for (i = 0; i <x.length; i++) {
-				  str = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue ;
-				  if(str.toUpperCase()==key.toUpperCase()){ 
+				  str = x[i].getElementsByTagName("name")[0];
+				  txtValue = str.textContent || str.innerText;
+				  if(txtValue.toUpperCase().indexOf(filter) > -1){ 
 						table += "<tr><td>" +
-					"<a href='#'/>"+str+"</a>" +
+					"<a href='#'/>"+txtValue+"</a>" +
 					
 					
 					"</td></tr>";
-					count=0;
-					 break;
+					
+					count-=1;
 					}
 					else{
-					   count=1
+					   count+=1;
 					}
 				  
 					
 				  }
-				  if(count==1){
-				   table += "<tr><td>" +
-					"No search Found" +
-					
-					
-					"</td></tr>";
-				  }
+				   if(count== x.length){
+					   table += "<tr><td>" +
+						"Sorry,No Movie Found" +
+						
+						
+						"</td></tr>";
+					  }
+				 
 				  document.getElementById("result").innerHTML = table;
 			
 			
-			
-			
-			
-			}
+	
+				
+				}
 			
 			
 			
@@ -226,5 +230,3 @@
 
 
 </html>
-
-
