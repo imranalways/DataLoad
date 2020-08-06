@@ -96,17 +96,15 @@
 				  var table2="";
 				  var key;
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
-				  var key = document.getElementById("result");
+				  var key;
 				  var Image;
 				  var Name;
 				  var mnam;
 				   for (i = x.length-1; i >=0; i--) { 
-				   
-					
-				  
-					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+				     key = document.getElementById("result")[0];
+				    Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
 					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-					if(Name == 'Premam'){
+					if(Name == key){
 					table2 += "<tr><td class='images'>" +
 					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
 					"</td><td>" +
