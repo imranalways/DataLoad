@@ -44,7 +44,8 @@
 				  txtValue = str.textContent || str.innerText;
 				  if(txtValue.toUpperCase().indexOf(filter) > -1){ 
 						table += "<tr><td>" +
-					"<a href='#'/>"+txtValue+"</a>" +
+					txtValue  +
+					//"<button onclick='getmovie()'/>"+txtValue+"</button>" +
 					
 					
 					"</td></tr>";
@@ -77,7 +78,69 @@
 			
 		</script>
 	
-		
+		<script>
+				function getmovie() {
+				  var xmlhttp = new XMLHttpRequest();
+				  xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  myFunc(this);
+					}
+				  };
+				  xmlhttp.open("GET", "cd_catalog.xml", true);
+				  xmlhttp.send();
+				}
+				function myFunc(xml) {
+				  var i;
+				  var xmlDoc = xml.responseXML;
+				  var table="";
+				  var table2="";
+				  var key;
+				  var x = xmlDoc.getElementsByTagName("movieInfo");
+				  var key = document.getElementById("result");
+				  var Image;
+				  var Name;
+				  var mnam;
+				   for (i = x.length-1; i >=0; i--) { 
+				   
+					mnam=key[i].value;
+				  
+					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+					if(Name == 'Premam'){
+					table2 += "<tr><td class='images'>" +
+					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
+					"</td><td>" +
+					 
+					"<br> <br>"+
+					 "<tr><td class='name'>Name</td><td class='disname'> : " +
+					 Name +
+					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
+					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Cast</td><td class='disname'> : " + 
+					x[i].getElementsByTagName("cast")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'> Release Date</td><td class='disname'> : " +
+					x[i].getElementsByTagName("releaseDate")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Category</td><td class='disname'> : " +
+					x[i].getElementsByTagName("category")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Genre</td><td class='disname'> : " +
+					x[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>IMDB</td><td class='disname'> : " +
+					x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td valign='top' class='name'>Description</td><td class='disname'> : " +
+					x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+					"<br> <br> <br> <br> <br> <hr>"+
+					"</td></tr></td></tr> ";
+					
+					
+					}
+				  }
+				  document.getElementById("demo").innerHTML = table;
+				  document.getElementById("demo2").innerHTML = table2;
+				  
+				  
+				}
+			
+		</script>
 		
 	</head>
 	
@@ -168,9 +231,9 @@
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
 				  var Image;
 				  var Name;
-				  for (i = 0; i <x.length; i++) { 
+				   for (i = x.length-1; i >=0; i--) { 
 					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
-					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue
+					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 					
 					table2 += "<tr><td class='images'>" +
 					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
@@ -200,7 +263,7 @@
 					
 				  }
 				  document.getElementById("demo").innerHTML = table;
-				  document.getElementById("demo2").innerHTML = table2
+				  document.getElementById("demo2").innerHTML = table2;
 				  
 				  
 				}
@@ -214,16 +277,17 @@
 	
 		<br>
 		
-			<table class="movies" id="result"> </table>		
+			<table class="movies" onclick="getmovie()" id="result"> </table>		
 		
 		
 		
-		
+		<br> <br> <br> <br> <br> <br> <br> <br>
 		<center><h2>Still Under Maintainance</h2></center>
+			
 		
-
 		</form>
-		<center>&copy; Copyright 2020 Movie review site</center>
+		<center>&copy; Copyright 2020 Movie review site by <a href="https://www.facebook.com/imranalwayz/" target="_blank" style="text-decoration: none;">Imran Hossain</a></center>
+		<br> <br> <br>
 		</header>
 	</body>
 
