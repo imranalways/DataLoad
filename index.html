@@ -31,6 +31,7 @@
 			
 				  var i, txtValue;
 				  var table="";
+				  var table2="";
 				  var str;
 				  var count=0;
 				  
@@ -39,76 +40,26 @@
 				  var filter = key.value.toUpperCase();
 				  
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
-				  for (i = 0; i <x.length; i++) {
+				  for (i = x.length-1; i >=0; i--) {
+				  
+				  
 				  str = x[i].getElementsByTagName("name")[0];
 				  txtValue = str.textContent || str.innerText;
 				  if(txtValue.toUpperCase().indexOf(filter) > -1){ 
-						table += "<tr><td>" +
-					txtValue  +
-					//"<button onclick='getmovie()'/>"+txtValue+"</button>" +
-					
-					
-					"</td></tr>";
-					
-					count-=1;
-					}
-					else{
-					   count+=1;
-					}
-				  
-					
-				  }
-				   if(count== x.length){
-					   table += "<tr><td>" +
-						"Sorry,No Movie Found" +
+					/*table2 += "<tr><td>" +
+						txtValue +
 						
 						
-						"</td></tr>";
-					  }
-				 
-				  document.getElementById("result").innerHTML = table;
-			
-			
-	
-				
-				}
-			
-			
-			
-			
-		</script>
-	
-		<script>
-				function getmovie() {
-				  var xmlhttp = new XMLHttpRequest();
-				  xmlhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-					  myFunc(this);
-					}
-				  };
-				  xmlhttp.open("GET", "cd_catalog.xml", true);
-				  xmlhttp.send();
-				}
-				function myFunc(xml) {
-				  var i;
-				  var xmlDoc = xml.responseXML;
-				  var table="";
-				  var table2="";
-				  var key;
-				  var x = xmlDoc.getElementsByTagName("movieInfo");
-				  var key;
-				  var Image;
-				  var Name;
-				  var mnam;
-				   for (i = x.length-1; i >=0; i--) { 
-				     key = document.getElementById("result")[0];
-				    Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+						"</td></tr>";*/
+									    
 					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-					if(Name == key){
-					table2 += "<tr><td class='images'>" +
+					if(Name == txtValue)
+					{
+					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+					table += "<tr><td class='images'>" +
 					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
 					"</td><td>" +
-					 
+					
 					"<br> <br>"+
 					 "<tr><td class='name'>Name</td><td class='disname'> : " +
 					 Name +
@@ -131,14 +82,36 @@
 					
 					
 					}
+					count-=1;
+					}
+					else{
+					   count+=1;
+					}
+				  
+					
 				  }
-				  document.getElementById("demo").innerHTML = table;
-				  document.getElementById("demo2").innerHTML = table2;
-				  
-				  
+				   if(count== x.length){
+					   table += "<tr><td>" +
+						"<center><h2>Sorry,No Movie Found<h2></center>" +
+						
+						
+						"</td></tr>";
+					  }
+				 
+				  document.getElementById("demo2").innerHTML = table;
+				  document.getElementById("result").innerHTML = table2;
+			
+			
+	
+				
 				}
 			
+			
+			
+			
 		</script>
+	
+		
 		
 	</head>
 	
@@ -275,7 +248,7 @@
 	
 		<br>
 		
-			<table class="movies" onclick="getmovie()" id="result"> </table>		
+			<table class="movies" id="result"> </table>		
 		
 		
 		
